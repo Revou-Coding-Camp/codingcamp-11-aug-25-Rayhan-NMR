@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portofolio — Rayhan Nazzaz Ma'rif</title>
+  <meta name="description" content="Portofolio pribadi: ringkasan, proyek, dan kontak Rayhan Nazzaz Ma'rif." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+
+:root {
+  --bg: #0b1020;
+  --panel: #11162a;
+  --panel-2: #0f1426;
+  --text: #eef2ff;
+  --muted: #b7c0e0;
+  --primary: #7c9aff;
+  --ring: rgba(124,154,255,.45);
+  --shadow: 0 10px 30px rgba(0,0,0,.35);
+  --radius: 20px;
+}
+
+.light {
+  --bg: #f6f8ff;
+  --panel: #ffffff;
+  --panel-2: #eef2ff;
+  --text: #0c1020;
+  --muted: #49537a;
+  --primary: #4058ff;
+  --ring: rgba(64,88,255,.25);
+  --shadow: 0 10px 30px rgba(64,88,255,.08);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Poppins', system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, 'Helvetica Neue', Arial, 'Noto Sans';
+  background:
+    radial-gradient(1200px 600px at 20% -10%, rgba(124,154,255,.15), transparent 60%),
+    radial-gradient(800px 400px at 90% 10%, rgba(124,154,255,.12), transparent 60%),
+    var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+}
+
+/* Header */
+header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  backdrop-filter: saturate(1.2) blur(10px);
+  background: color-mix(in oklab, var(--panel) 75%, transparent);
+  border-bottom: 1px solid color-mix(in oklab, var(--primary) 20%, transparent);
+}
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 64px;
+}
+
+.brand {
+  font-weight: 700;
+  letter-spacing: .5px;
+}
+
+.brand .dot {
+  color: var(--primary);
+}
+
+nav ul {
+  display: flex;
+  gap: 18px;
+  list-style: none;
+}
+
+nav a {
+  text-decoration: none;
+  color: var(--muted);
+  font-weight: 500;
+  padding: 8px 10px;
+  border-radius: 10px;
+}
+
+nav a.active,
+nav a:hover {
+  color: var(--text);
+  background: color-mix(in oklab, var(--primary) 15%, transparent);
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 14px;
+  border-radius: 999px;
+  border: 1px solid color-mix(in oklab, var(--primary) 35%, transparent);
+  background: linear-gradient(
+    180deg,
+    color-mix(in oklab, var(--panel) 70%, transparent),
+    color-mix(in oklab, var(--panel-2) 80%, transparent)
+  );
+  color: var(--text);
+  text-decoration: none;
+  font-weight: 600;
+  box-shadow: var(--shadow);
+  transition: outline .2s ease;
+}
+
+.btn:hover {
+  outline: 3px solid var(--ring);
+}
+
+.ghost {
+  background: transparent;
+  border-color: color-mix(in oklab, var(--primary) 20%, transparent);
+}
+
+.theme-toggle {
+  cursor: pointer;
+  border: none;
+  background: transparent;
+  color: var(--muted);
+  font-size: 18px;
+}
+
+section {
+  padding: 35px 0;
+}
+
+#home {
+  padding-top: 25px;
+  padding-bottom: 10px;
+}
+
+#about,
+#projects,
+#sertifikat,
+#contact {
+  padding-top: 25px;
+  padding-bottom: 25px;
+}
+
+.hero {
+  display: grid;
+  gap: 20px;
+  align-items: center;
+  grid-template-columns: 1.1fr .9fr;
+}
+
+.pill {
+  display: inline-flex;
+  gap: 8px;
+  align-items: center;
+  border: 1px solid color-mix(in oklab, var(--primary) 35%, transparent);
+  padding: 6px 12px;
+  border-radius: 999px;
+  color: var(--muted);
+  font-size: 14px;
+  background: color-mix(in oklab, var(--panel) 30%, transparent);
+}
+
+.title {
+  font-size: clamp(28px, 4vw, 44px);
+  line-height: 1.15;
+  margin: 6px 0 8px;
+}
+
+.subtitle {
+  color: var(--muted);
+  max-width: 60ch;
+}
+
+.hero-cta {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 18px;
+}
+
+.hero figure {
+  justify-self: end;
+  margin: 0;
+}
+
+.grid {
+  display: grid;
+  gap: 18px;
+}
+
+.cols-3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.cols-2 {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.section-head {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  margin-bottom: 18px;
+}
+
+.section-head h2 {
+  font-size: clamp(20px, 3.2vw, 28px);
+}
+
+.section-head p {
+  color: var(--muted);
+}
+
+.card {
+  padding: 18px;
+  border-radius: calc(var(--radius) - 4px);
+  border: 1px solid color-mix(in oklab, var(--primary) 20%, transparent);
+  background: color-mix(in oklab, var(--panel) 90%, transparent);
+  box-shadow: var(--shadow);
+}
+
+.project {
+  display: grid;
+  gap: 10px;
+}
+
+.thumb {
+  aspect-ratio: 16/9;
+  border-radius: 14px;
+  background: #0e152e center/cover no-repeat;
+  border: 1px solid color-mix(in oklab, var(--primary) 20%, transparent);
+}
+
+.project h3 {
+  margin: 0;
+}
+
+.tags {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.tag {
+  font-size: 12px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  border: 1px solid color-mix(in oklab, var(--primary) 25%, transparent);
+  color: var(--muted);
+}
+
+form {
+  display: grid;
+  gap: 12px;
+}
+
+input,
+textarea {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 12px;
+  border: 1px solid color-mix(in oklab, var(--primary) 25%, transparent);
+  background: color-mix(in oklab, var(--panel) 90%, transparent);
+  color: var(--text);
+}
+
+textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+footer {
+  padding: 32px 0 40px;
+  color: var(--muted);
+  text-align: center;
+}
+
+@media (max-width: 980px) {
+  .hero {
+    grid-template-columns: 1fr;
+  }
+
+  .hero figure {
+    justify-self: start;
+  }
+
+  .cols-3,
+  .cols-2 {
+    grid-template-columns: 1fr;
+  }
+}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <div class="brand">Rayhan<span class="dot">.</span></div>
+<nav>
+  <ul>
+    <li><a href="#home" class="active">Home</a></li>
+    <li><a href="#about">Tentang</a></li>
+    <li><a href="#projects">Proyek</a></li>
+    <li><a href="#sertifikat">Sertifikat</a></li>
+    <li><a href="#contact">Kontak</a></li>
+  </ul>
+</nav>
+      <div style="display:flex; gap:8px; align-items:center;">
+<a class="btn ghost" href="CV-Rayhan-Nazzaz-Marif.jpeg" download="CV-Rayhan-Nazzaz-Marif.jpeg">Download CV</a>
+        <button class="theme-toggle" id="themeToggle" title="Ganti tema">🌓</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section id="home" class="hero">
+      <div>
+        <span class="pill">👋 Halo, saya</span>
+        <h1 class="title">Rayhan Nazzaz Ma'rif — <span id="typer" aria-label="peran"></span></h1>
+        <p class="subtitle">Calon mahasiswa Statistika & Informatika dengan minat pada Data Science. Berpengalaman membangun website modern serta memiliki ketertarikan dalam analisis data untuk menghasilkan solusi berbasis insight.</p>
+        <div class="hero-cta">
+          <a href="#projects" class="btn">Lihat Proyek</a>
+          <a href="#contact" class="btn ghost">Hubungi Saya</a>
+        </div>
+        <div style="display:flex; gap:10px; margin-top:16px;">
+<a href="mailto:rayhan.nazzazmr@gmail.com" aria-label="Email" title="Email">
+  <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+    <path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2Zm0 4-8 5L4 8V6l8 5 8-5v2Z"/>
+  </svg>
+</a>
+
+<a href="https://github.com/Rayhan-NMR" aria-label="GitHub" target="_blank" rel="noreferrer" title="GitHub">
+  <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+    <path d="M12 .5C5.65.5.5 5.65.5 12a11.5 11.5 0 0 0 7.86 10.92c.58.1.79-.25.79-.56v-2.02c-3.2.7-3.88-1.54-3.88-1.54-.52-1.32-1.27-1.67-1.27-1.67-1.04-.7.08-.68.08-.68 1.15.08 1.75 1.18 1.75 1.18 1.02 1.75 2.68 1.25 3.34.96.1-.74.4-1.25.72-1.54-2.56-.29-5.26-1.28-5.26-5.7 0-1.26.45-2.3 1.18-3.12-.12-.3-.52-1.5.12-3.13 0 0 .97-.31 3.18 1.19a10.9 10.9 0 0 1 5.8 0c2.2-1.5 3.17-1.19 3.17-1.19.65 1.63.25 2.83.13 3.13.74.82 1.18 1.86 1.18 3.12 0 4.43-2.7 5.4-5.28 5.69.42.36.78 1.08.78 2.18v3.23c0 .31.2.67.8.56A11.5 11.5 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5Z"/>
+  </svg>
+</a>
+
+<a href="https://www.linkedin.com/in/rayhan-nazzaz/" aria-label="LinkedIn" target="_blank" rel="noreferrer" title="LinkedIn">
+  <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+    <path d="M4.98 3.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5ZM3 8.98h3.96V21H3V8.98Zm7.49 0H14.3v1.63h.05c.46-.87 1.6-1.79 3.29-1.79 3.52 0 4.17 2.32 4.17 5.33V21h-3.97v-5.11c0-1.22-.02-2.8-1.7-2.8-1.7 0-1.96 1.33-1.96 2.71V21H10.5V8.98Z"/>
+  </svg>
+</a>
+
+<a href="https://www.instagram.com/ray_ui_draws/" aria-label="Instagram" target="_blank" rel="noreferrer" title="Instagram">
+  <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+    <path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5Zm10 2H7a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3Zm-5 3.5A5.5 5.5 0 1 1 6.5 13 5.51 5.51 0 0 1 12 7.5Zm0 2A3.5 3.5 0 1 0 15.5 13 3.5 3.5 0 0 0 12 9.5Zm5.75-2.75a1 1 0 1 1-1-1 1 1 0 0 1 1 1Z"/>
+  </svg>
+</a>
+        </div>
+      </div>
+      <figure>
+         <img src="Rayh.jpeg" alt="Foto Rayhan Nazzaz Ma'rif"
+        style="width: 180px; height: 180px; border-radius: 50%; object-fit: cover; border: 3px solid #333; margin-bottom: 20px;">
+    </section>
+
+    <section id="about">
+      <div class="section-head">
+        <h2>Tentang</h2>
+        <p>Ringkasan singkat</p>
+      </div>
+      <div class="card">
+        <p>Saya seorang Calon mahasiswa Statistika dan Informatika dengan minat pada Data Science. Berpengalaman dalam pengembangan web dan tertarik pada analisis data untuk menghasilkan solusi berbasis insight. Berkomitmen untuk terus berkembang di bidang teknologi dan data.</p>
+        </div>
+      </div>
+    </section>
+
+<section id="projects">
+  <div class="section-head">
+    <h2>Proyek</h2>
+    <p>Beberapa karya</p>
+  </div>
+
+  <div class="grid cols-3">
+
+    <article class="card project">
+      <a
+        class="thumb"
+        href="https://revou-coding-camp.github.io/codingcamp-7-jul-25-Rayhan-NMR/"
+        target="_blank"
+        rel="noreferrer"
+        style="background-image: url('todo.png');"
+        aria-label="To-Do List App">
+      </a>
+
+      <div class="project-content">
+        <h3>To-Do List App</h3>
+        <p class="subtitle">Aplikasi to-do list sederhana dengan UI bersih.</p>
+
+        <div class="tags">
+          <span class="tag">HTML</span>
+          <span class="tag">CSS</span>
+          <span class="tag">JavaScript</span>
+        </div>
+      </div>
+    </article>
+
+    <article class="card project">
+      <a
+        class="thumb"
+        href="https://revou-fundamental-course.github.io/16-jun-25-Rayhan-NMR-/"
+        target="_blank"
+        rel="noreferrer"
+        style="background-image: url('kalkuray.png');"
+        aria-label="Kalkulator Segitiga">
+      </a>
+
+      <div class="project-content">
+        <h3>Kalkulator Segitiga</h3>
+        <p class="subtitle">Hitung luas & keliling segitiga secara instan.</p>
+
+        <div class="tags">
+          <span class="tag">HTML</span>
+          <span class="tag">CSS</span>
+          <span class="tag">JS</span>
+        </div>
+      </div>
+    </article>
+
+    <article class="card project">
+      <a
+        class="thumb"
+        href="https://rayhan-nmr.github.io/Farming-website-html/"
+        target="_blank"
+        rel="noreferrer"
+        style="background-image: url('PERTANIAN.png');"
+        aria-label="Chart Analisis Pertanian">
+      </a>
+
+      <div class="project-content">
+        <h3>Chart Analisis Pertanian</h3>
+        <p class="subtitle">Melihat data pertanian dalam jangka beberapa tahun.</p>
+
+        <div class="tags">
+          <span class="tag">HTML</span>
+          <span class="tag">CSS</span>
+        </div>
+      </div>
+    </article>
+
+  </div>
+</section>
+<section id="sertifikat">
+  <h2>Sertifikat</h2>
+
+  <div class="grid cols-3">
+
+    <div class="card">
+      <div class="thumb" style="background-image:url('sertifikat-volunteer.jpeg')"></div>
+      <div class="project-content">
+        <h3>Sertifikat Volunteer</h3>
+        <p>Program volunteer internasional yang berkontribusi pada aksi lingkungan sekaligus mengembangkan kemampuan kolaborasi dan tanggung jawab sosial.</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="thumb" style="background-image:url('sertifikat-lomba.jpeg')"></div>
+      <div class="project-content">
+        <h3>Sertifikat Lomba</h3>
+        <p>Kompetisi Matematika tingkat nasional yang telah tervalidasi oleh Puspresnas, mengasah kemampuan logika, analisis, dan problem solving.
+         Status: Valid (Puspresnas)
+         Tahun: 2025.</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="thumb" style="background-image:url('sertifikat-course.jpeg')"></div>
+      <div class="project-content">
+        <h3>Sertifikat Course</h3>
+        <p>Sertifikat data analytics dengan fokus pada pengolahan dan analisis data untuk menghasilkan insight yang mendukung keputusan.</p>
+      </div>
+</section>
+  <div style="text-align:center; margin-top:24px;">
+    <a 
+      href="https://drive.google.com/drive/folders/1j_LG4LKG9ZfsJMUdp4VPh3v5kU62rCu3"
+      target="_blank"
+      rel="noreferrer"
+      class="btn">
+      Klik di sini
+    </a>
+  </div>
+</section>
+
+    <section id="contact">
+      <div class="section-head">
+        <h2>Kontak</h2>
+        <p>Siap berdiskusi? Kirim pesan</p>
+      </div>
+      <div class="grid cols-2">
+        <div class="card">
+          <form action="mailto:rayhan.nazzazmr@gmail.com" method="post" enctype="text/plain">
+            <input type="text" name="Nama" placeholder="Nama" required />
+            <input type="email" name="Email" placeholder="Email" required />
+            <textarea name="Pesan" placeholder="Tulis pesan…" required></textarea>
+            <button class="btn" type="submit">Kirim</button>
+          </form>
+        </div>
+        <div class="card">
+          <h3 style="margin-top:0;">kontak</h3>
+          <ul style="list-style:none; padding:0; display:grid; gap:8px; margin:0;">
+            <li>📧 <a href="mailto:rayhan.nazzazmr@gmail.com" style="color:var(--text);">rayhan.nazzazmr@gmail.com</a></li>
+            <li>📷 <a href="https://www.instagram.com/ray_ui_draws/" target="_blank" style="color:var(--text);">Instagram</a></li>
+            <li>📍 Bogor, Indonesia</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">© <span id="year"></span> Rayhan Nazzaz Ma'rif — Semua hak dilindungi.</div>
+  </footer>
+
+  
+  <script>
+    const html = document.documentElement;
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'light') html.classList.add('light');
+    document.getElementById('themeToggle').addEventListener('click', () => {
+      html.classList.toggle('light');
+      localStorage.setItem('theme', html.classList.contains('light') ? 'light' : 'dark');
+    });
+
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    const roles = ['Data Science & Informatics Enthusiast | Web Developer']
+    const el = document.getElementById('typer');
+    let i = 0, j = 0, deleting = false;
+    function type() {
+      const word = roles[i % roles.length];
+      if (!deleting) {
+        el.textContent = word.slice(0, j++);
+        if (j > word.length + 8) deleting = true; 
+      } else {
+        el.textContent = word.slice(0, j--);
+        if (j < 0) { deleting = false; i++; }
+      }
+      setTimeout(type, deleting ? 60 : 90);
+    }
+    type();
+
+    const links = document.querySelectorAll('nav a');
+    const sections = Array.from(links).map(a => document.querySelector(a.getAttribute('href'))).filter(Boolean);
+    const spy = new IntersectionObserver((ents) => {
+      ents.forEach(ent => {
+        if (ent.isIntersecting) {
+          links.forEach(l => l.classList.remove('active'));
+          const id = '#' + ent.target.id;
+          const active = document.querySelector('nav a[href="' + id + '"]');
+          active && active.classList.add('active');
+        }
+      })
+    }, { rootMargin: '-40% 0px -55% 0px', threshold: 0.1 });
+    sections.forEach(s => spy.observe(s));
+  </script>
+</body>
